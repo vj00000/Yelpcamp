@@ -18,12 +18,23 @@ var
 	  campgroundRoutes      = require("./routes/campgrounds"), 
 	  indexRoutes           =   require("./routes/index");
 // seedDB();
-mongoose.connect('mongodb://localhost:27017/db_name', {
+// mongoose.connect('mongodb://localhost:27017/db_name', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// })
+// .then(() => console.log('Connected to DB!'))
+// .catch(error => console.log(error.message));
+mongoose.connect("mongodb+srv://vjj:asdfghjkl;'@cluster0.vcdxg.mongodb.net/yelp_camp?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
 .then(() => console.log('Connected to DB!'))
 .catch(error => console.log(error.message));
+
+// mongodb+srv://vjj:asdfghjkl;'@cluster0.vcdxg.mongodb.net/yelp_camp?retryWrites=true&w=majority
+
+// mongoose.connect("mongodb+srv://vjj:asdfghjkl;'@cluster0-uhi3c.mongodb.net/test?retryWrites=true");
+// mongodb+srv://vjj:<password>@cluster0.vcdxg.mongodb.net/<dbname>?retryWrites=true&w=majority
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -52,6 +63,3 @@ app.listen(port, function () {
   console.log("Server Has Started!");
 });
 
-// app.listen(3000, ()=>{
-//    console.log("The YelpCamp Server Has Started!");
-// });
